@@ -80,7 +80,7 @@ function App() {
         </tbody>
       </table>
 
-      {totalFootprint2 > carbonFootprintThreshold && (
+      {totalFootprint2 > carbonFootprintThreshold ? (
         <div className="suggestions">
           <h2>Suggestions to Reduce Your Carbon Footprint</h2>
           <ul>
@@ -91,6 +91,11 @@ function App() {
             <li>Batch tasks and schedule downloads during off-peak times.</li>
             <li>Educate others about digital carbon emissions and support sustainable policies.</li>
           </ul>
+        </div>
+      ) : (
+        <div className="congratulations">
+          <h2>Congratulations!</h2>
+          <p>You are within a safe carbon footprint limit.</p>
         </div>
       )}
     </div>
