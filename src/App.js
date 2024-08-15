@@ -12,7 +12,6 @@ function App() {
       <div className="navbar">
         <Link to="/">Home</Link>
         <Link to="/login">Login</Link>
-        <Link to="/carbon-footprint">Carbon Footprint</Link> {/* Add link to the new component */}
       </div>
 
       <Routes>

@@ -1,12 +1,11 @@
-// src/CarbonFootprint.js
 import React, { useEffect, useState } from 'react';
-import './CarbonFootprint.css'; // Import specific styles for CarbonFootprint
+import './CarbonFootprint.css';
 
 function CarbonFootprint() {
   const [data, setData] = useState({
     bytesReceived: 0,
     bytesSent: 0,
-    totalGB: 0, // Ensure this is initialized as a number
+    totalGB: 0,
   });
 
   useEffect(() => {
@@ -14,7 +13,6 @@ function CarbonFootprint() {
     fetch('http://localhost:3001/api/netstat')
       .then((response) => response.json())
       .then((data) => {
-        // Ensure that totalGB is a number
         setData({
           ...data,
           totalGB: parseFloat(data.totalGB) || 0,
@@ -33,18 +31,36 @@ function CarbonFootprint() {
   const electricityConsumptionPerGB = 0.1; // kWh per GB
   const electricityEmissionFactor = 0.475; // kg CO2e per kWh
 
-  // Calculate carbon footprint due to electricity
   const electricityFootprint = data.totalGB * electricityConsumptionPerGB * electricityEmissionFactor;
 
   // Hardware production emissions
   const hardwareEmissionFactor = 0.05; // kg CO2e per GB
   const hardwareFootprint = data.totalGB * hardwareEmissionFactor;
 
-  // Total carbon footprint (data + electricity + hardware)
   const totalFootprint1 = carbonFootprint1 + electricityFootprint + hardwareFootprint;
   const totalFootprint2 = carbonFootprint2 + electricityFootprint + hardwareFootprint;
 
-  // Define threshold for excessive carbon footprint (realistic daily estimate)
+  // Send totalFootprint2 to the backend to be recorded
+  useEffect(() => {
+    const userId = 1; // Replace with actual user ID
+    const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+
+    fetch('http://localhost:3001/api/carbon-footprint', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        userId,
+        date: today,
+        totalFootprint: totalFootprint2,
+      }),
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error sending carbon footprint data:', error));
+  }, [totalFootprint2]); // Run this effect whenever totalFootprint2 changes
+
   const carbonFootprintThreshold = 1.0; // kg CO2e per day
 
   return (

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './Login.css';
 
 function Login() {
@@ -7,17 +8,32 @@ function Login() {
   const [password, setPassword] = useState('');
   const [isSignUp, setIsSignUp] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState('');
+  const navigate = useNavigate(); // Use useNavigate instead of useHistory
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isSignUp) {
-      if (password !== confirmPassword) {
-        alert("Passwords don't match!");
-        return;
+    try {
+      if (isSignUp) {
+        if (password !== confirmPassword) {
+          alert("Passwords don't match!");
+          return;
+        }
+        const response = await axios.post('http://localhost:3001/signup', {
+          username: email,
+          password: password,
+        });
+        console.log('Signing Up:', response.data);
+      } else {
+        const response = await axios.post('http://localhost:3001/login', {
+          username: email,
+          password: password,
+        });
+        console.log('Logging In:', response.data);
       }
-      console.log('Signing Up:', email, password);
-    } else {
-      console.log('Logging In:', email, password);
+      navigate('/carbon-footprint');
+    } catch (error) {
+      console.error('Error during authentication:', error.response?.data || error.message);
+      alert('Authentication failed. Please check your credentials.');
     }
   };
 
