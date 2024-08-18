@@ -10,17 +10,18 @@ html, body {
   padding: 15px 20px; /* Padding inside the navbar */
   width: 100%;
   box-sizing: border-box; /* Ensure padding doesn't affect width */
-  position: relative; /* Ensure it stays at the top */
+  position: fixed; /* Make the navbar fixed at the top */
   top: 0; /* Stick to the top */
   z-index: 1000; /* Ensure it stays above other content */
-  margin: 0; /* Remove any margin that might be pushing it down */
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space out elements */
+  align-items: center; /* Vertically center items */
 }
 
 /* Navbar links */
 .navbar-links {
   list-style: none;
   display: flex;
-  justify-content: flex-end; /* Align to the right */
   margin: 0;
   padding: 0;
 }
@@ -39,4 +40,15 @@ html, body {
 
 .nav-link:hover {
   text-decoration: underline;
+}
+
+/* Body padding to prevent overlap with fixed navbar */
+body {
+  padding-top: 70px; /* Adjust this based on your navbar height */
+}
+
+/* Optional: style for active/current page link */
+.nav-link.active {
+  text-decoration: underline;
+  font-weight: bold;
 }

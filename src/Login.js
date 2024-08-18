@@ -91,9 +91,6 @@ function Login() {
             {isSignUp ? 'Login' : 'Sign Up'}
           </button>
         </p>
-        <Link to="/" className="home-link">
-          <button className="home-button">Home</button>
-        </Link>
       </div>
     </div>
   );
