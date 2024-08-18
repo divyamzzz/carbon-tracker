@@ -1,3 +1,7 @@
+Here's the full README file for your Carbon Tracker project:
+
+---
+
 # Carbon Tracker
 
 Welcome to **Carbon Tracker**, a web application designed to help you monitor and reduce your carbon footprint based on your device's data consumption and electricity usage. By keeping track of your carbon emissions, you can take steps towards a more sustainable and environmentally-friendly lifestyle.
@@ -60,19 +64,19 @@ Follow these instructions to get a copy of the project up and running on your lo
 2. **Install dependencies for the frontend and backend:**
 
    ```bash
-   # Install frontend dependencies
-   cd client
+   # Install backend dependencies
+   cd backend
    npm install
    
-   # Install backend dependencies
-   cd ../server
+   # Install frontend dependencies
+   cd ../frontend
    npm install
    ```
 
 3. **Set up the PostgreSQL database:**
 
    - Create a new PostgreSQL database.
-   - Update the `DATABASE_URL` in the `.env` file located in the `server` directory with your PostgreSQL connection string.
+   - Update the `DATABASE_URL` in the `.env` file located in the `backend` directory with your PostgreSQL connection string.
 
    Example `.env` file:
 
@@ -85,15 +89,15 @@ Follow these instructions to get a copy of the project up and running on your lo
 
    ```bash
    # Start the backend server
-   cd server
-   npm start
+   cd backend
+   nodemon app.js
    
    # Start the frontend development server
-   cd ../client
+   cd ../frontend
    npm start
    ```
 
-   The application should now be running on `http://localhost:3000`.
+   The backend server should be running on `http://localhost:5000`, and the frontend on `http://localhost:3000`.
 
 ## Usage
 
@@ -135,3 +139,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 Thank you for checking out **Carbon Tracker**! Let's work together to reduce our carbon footprint and make the world a greener place. 🌍
+
+---
+
+This README provides a comprehensive overview of the Carbon Tracker project, including features, tech stack, setup instructions, and more.
