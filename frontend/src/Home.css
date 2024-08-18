@@ -1,0 +1,31 @@
+/* src/Home.css */
+.home-container {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .earth-container {
+    width: 300px; /* Adjust as needed */
+    height: 300px; /* Adjust as needed */
+    border-radius: 50%; /* Make the container circular */
+    overflow: hidden; /* Ensure content stays within the circle */
+    margin: 0 auto; /* Center horizontally */
+    background: #f0f0f0; /* Optional: add a background color */
+    position: relative; /* For proper centering */
+  }
+  
+  .earth-gif {
+    width: 100%; /* Fit the container width */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .animated-heading {
+    font-size: 36px;
+    margin-top: 20px;
+  }
+  
+  .animated-paragraph {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  

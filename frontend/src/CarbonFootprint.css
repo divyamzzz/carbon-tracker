@@ -1,0 +1,55 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure the entire view height is covered */
+}
+
+.App {
+  max-width: 600px;
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto; /* Center the table */
+}
+
+th, td {
+  border: 2px solid #333; /* Increase border width for bold lines */
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+  border-bottom: 3px solid #333; /* Thicker bottom border for headers */
+}
+
+tr {
+  border-bottom: 2px solid #ddd; /* Bold bottom border for rows */
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+p {
+  font-size: 16px;
+  color: #666;
+}
