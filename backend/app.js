@@ -189,7 +189,6 @@ app.post('/api/carbon-footprint', async (req, res) => {
       );
       res.json({ message: 'Carbon footprint updated for the existing date.' });
     } else {
-      // If no record exists, insert a new record
       await db.query(
         'INSERT INTO user_footprint (user_id, date, total_footprint) VALUES ($1, $2, $3)',
         [userId, date, totalFootprint]
