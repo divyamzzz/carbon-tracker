@@ -177,14 +177,12 @@ app.post('/api/carbon-footprint', async (req, res) => {
   const { userId, date, totalFootprint } = req.body;
 
   try {
-    // Check if there's already a record for this user on the same date
     const result = await db.query(
       'SELECT * FROM user_footprint WHERE user_id = $1 AND date = $2',
       [userId, date]
     );
 
     if (result.rows.length > 0) {
-      // If a record exists, update the carbon footprint for that date
       await db.query(
         'UPDATE user_footprint SET total_footprint = total_footprint + $1 WHERE user_id = $2 AND date = $3',
         [totalFootprint, userId, date]
