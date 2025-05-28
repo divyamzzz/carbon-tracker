@@ -39,7 +39,6 @@ Welcome to **Carbon Tracker**, a web application designed to help you monitor an
 - **PostgreSQL**: A powerful, open-source object-relational database system to store user data and carbon footprint calculations.
 
 ### Other Tools
-- **JWT (JSON Web Tokens)**: For secure authentication.
 - **Bcrypt**: For hashing passwords before storing them in the database.
 
 ## Getting Started
