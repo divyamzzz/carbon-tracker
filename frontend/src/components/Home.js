@@ -2,7 +2,7 @@
 // src/Home.js
 import React from 'react';
 import './Home.css';
-import earthGif from './assets/earth3.webp'; // Path to your GIF
+import earthGif from './assets/earth3.webp'; 
 
 function Home() {
   return (
