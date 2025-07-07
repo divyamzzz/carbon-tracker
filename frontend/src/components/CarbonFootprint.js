@@ -42,8 +42,8 @@ function CarbonFootprint() {
 
   // Send totalFootprint2 to the backend to be recorded
   useEffect(() => {
-    const userId = 1; // Replace with actual user ID
-    const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+    const userId = 1; 
+    const today = new Date().toISOString().split('T')[0]; 
 
     fetch('http://localhost:3001/api/carbon-footprint', {
       method: 'POST',
@@ -59,7 +59,7 @@ function CarbonFootprint() {
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error('Error sending carbon footprint data:', error));
-  }, [totalFootprint2]); // Run this effect whenever totalFootprint2 changes
+  }, [totalFootprint2]); 
 
   const carbonFootprintThreshold = 1.0; // kg CO2e per day
 

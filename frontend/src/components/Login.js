@@ -8,7 +8,7 @@ function Login() {
   const [password, setPassword] = useState('');
   const [isSignUp, setIsSignUp] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState('');
-  const navigate = useNavigate(); // Use useNavigate instead of useHistory
+  const navigate = useNavigate(); //
 
   const handleSubmit = async (e) => {
     e.preventDefault();
