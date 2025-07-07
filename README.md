@@ -56,7 +56,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/carbon-tracker.git
+   git clone https://github.com/divyamzzz/carbon-tracker.git
    cd carbon-tracker
    ```
 
@@ -77,12 +77,6 @@ Follow these instructions to get a copy of the project up and running on your lo
    - Create a new PostgreSQL database.
    - Update the `DATABASE_URL` in the `.env` file located in the `backend` directory with your PostgreSQL connection string.
 
-   Example `.env` file:
-
-   ```
-   DATABASE_URL=postgres://user:password@localhost:5432/carbon_tracker
-   JWT_SECRET=your_jwt_secret
-   ```
 
 4. **Run the application:**
 
