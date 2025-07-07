@@ -31,13 +31,13 @@ function CarbonFootprint() {
   const carbonFootprint2 = data.totalGB * carbonEmissionFactor2;
 
   // Electricity consumption and emissions
-  const electricityConsumptionPerGB = 0.1; // kWh per GB
+  const electricityConsumptionPerGB = 0.01; // kWh per GB
   const electricityEmissionFactor = 0.475; // kg CO2e per kWh
 
   const electricityFootprint = data.totalGB * electricityConsumptionPerGB * electricityEmissionFactor;
 
   // Hardware production emissions
-  const hardwareEmissionFactor = 0.05; // kg CO2e per GB
+  const hardwareEmissionFactor = 0.005; // kg CO2e per GB
   const hardwareFootprint = data.totalGB * hardwareEmissionFactor;
 
   const totalFootprint1 = carbonFootprint1 + electricityFootprint + hardwareFootprint;
