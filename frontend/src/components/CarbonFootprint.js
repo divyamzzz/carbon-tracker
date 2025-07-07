@@ -7,18 +7,21 @@ function CarbonFootprint() {
     bytesSent: 0,
     totalGB: 0,
   });
+    const fetchData = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/api/netstat');
+      const data_json = await response.json();
+      setData({
+        ...data_json,
+        totalGB: parseFloat(data_json.totalGB) || 0,
+      });
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
   useEffect(() => {
-    // Fetch data from the server
-    fetch('http://localhost:3001/api/netstat')
-      .then((response) => response.json())
-      .then((data) => {
-        setData({
-          ...data,
-          totalGB: parseFloat(data.totalGB) || 0,
-        });
-      })
-      .catch((error) => console.error('Error fetching data:', error));
+    fetchData();
   }, []);
 
   // Calculate carbon footprint using the totalGB and emission factors
